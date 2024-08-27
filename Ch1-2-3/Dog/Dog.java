@@ -62,6 +62,6 @@ public class Dog
     
     public void older(int years)
     {
-        age += years
+        age += years;
     }
 }

@@ -16,7 +16,12 @@ public class DogDemo
         
         Dog d2 = new Dog("Fido", 8);
         System.out.println(d2.getName());
-        
-        
+
+        Dog d3 = new Dog("Clazy", 8);
+
+        System.out.println(d1);
+
+        Song song = new Song("LEGENDS NEVER DIE", 3, 5, false);
+        System.out.println(song.calculateTax());
     }
 }
