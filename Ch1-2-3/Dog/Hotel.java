@@ -20,7 +20,7 @@ public class Hotel {
         this.avgRoomCost = avgRoomCost;
         this.isOnBeach = isOnBeach;
     }
-
+    
     public Hotel(String name)
     {
         this.name = name;
