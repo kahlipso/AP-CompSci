@@ -64,4 +64,14 @@ public class Dog
     {
         age += years;
     }
+
+    public String toString()
+    {
+        return "Name: " + name + "\nAge: " + age;
+    }
+
+    public int sumOfAges(Dog otherDog)
+    {
+        return this.age + otherDog.age;
+    }
 }
