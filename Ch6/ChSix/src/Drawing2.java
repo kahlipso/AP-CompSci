@@ -1,43 +1,40 @@
 public class Drawing2 {
 
     public static void main(String[] args) {
-        drawSailboat(10);
+        drawN(4);
     }
     public static void printBackwardsDiagonal(int n)
     {
-        int x = n-1;
+        int n1 = n+1;
         for(int r = 1; r <= n; r++)
         {
             for(int c = 1; c <= n; c++)
             {
-                if(c - r == x)
-                {
-                    System.out.print("x");
-                }
-                else {
-                    System.out.print(" ");
-                }
-            }
-            x-=2;
-            System.out.println();
-        }
-    }
-
-    public static void drawN(int n)
-    {
-        for(int r = 1; r <= n; r++)
-        {
-            for(int c = 1; c <= n; c++)
-            {
-                if(c == 1 || c == n || c-r == 0)
+                if(c == n1-1)
                 {
                     System.out.print("X");
                 }
                 else {
                     System.out.print(" ");
                 }
-
             }
+            n1-=1;
+            System.out.println();
+        }
+    }
+
+    public static void drawN(int n)
+    {
+        int n1 = n+1;
+        for(int r = 1; r <= n; r++) {
+            for (int c = 1; c <= n; c++) {
+                if (c == r || c == 1 || c == n) {
+                    System.out.print("X");
+                } else {
+                    System.out.print(" ");
+                }
+            }
+            n1 -= 1;
             System.out.println();
         }
     }
