@@ -1,8 +1,6 @@
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
-import javax.swing.ImageIcon;
 import java.awt.*;
-import java.io.*;
 import java.awt.geom.*;
 
 /**

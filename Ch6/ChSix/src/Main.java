@@ -2,24 +2,12 @@ import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
-        int n = 2;
-        while(n <= 100)
+        String mmm = "abcde";
+        System.out.println(mmm.substring(4,55));
+        for (int x = 1; x < 5; x++)
         {
-            int line = 0;
-            String thisLine = "";
-            while(line <=10 && n <= 100)
-            {
-                thisLine += n + " ";
-                line++;
-                n+=2;
-            }
-            System.out.println(thisLine);
-
+            System.out.print(mmm.substring(x, x+1) + " ");
         }
-
-        System.out.println(backwards(5));
-
-        countOccurances(7846597);
     }
 
     public static String backwards(int x)

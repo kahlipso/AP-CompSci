@@ -1,4 +1,3 @@
-import java.awt.Color;
 /**
  * RandomArt Demo - has examples of things your might use for your MyArt class
  * 
