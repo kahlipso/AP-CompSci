@@ -2,12 +2,7 @@ import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
-        String mmm = "abcde";
-        System.out.println(mmm.substring(4,55));
-        for (int x = 1; x < 5; x++)
-        {
-            System.out.print(mmm.substring(x, x+1) + " ");
-        }
+        System.out.println(isPerfect(6));
     }
 
     public static String backwards(int x)
@@ -76,6 +71,27 @@ public class Main {
             occurances = 0;
         }
 
+    }
+
+    public static boolean isPerfect(int n)
+    {
+        int sum = 0;
+        if(n > 1)
+        {
+            for(int i = 1; i <= n/2; i++)
+            {
+                if(n%i == 0)
+                {
+                    sum+=i;
+                }
+            }
+
+            if( sum == n)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
 }

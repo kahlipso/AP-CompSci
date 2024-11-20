@@ -30,9 +30,9 @@ public class MyArt
 
         image = new Picture(WIDTH, HEIGHT);
 
-        int r = (int) (Math.random() * 256 + 1);
-        int g = (int) (Math.random() * 256 + 1);
-        int b = (int) (Math.random() * 256 + 1);
+        int r = (int) (Math.random() * 256);
+        int g = (int) (Math.random() * 256);
+        int b = (int) (Math.random() * 256);
 
         for(int x = 0; x < image.getWidth(); x++)
         {
@@ -196,6 +196,63 @@ public class MyArt
                 int gray = (r + g + b)/3;
 
                 pixel.setColor(new Color(gray, gray, gray));
+            }
+        }
+    }
+
+    public void masterpiece()
+    {
+        int midX = image.getWidth() / 2;
+        int midY = image.getHeight() / 2;
+
+        for (int x = 0; x < image.getWidth(); x++) {
+            for (int y = 0; y < image.getHeight(); y++) {
+                Pixel pixel = image.getPixel(x, y);
+                int r = pixel.getRed();
+                int g = pixel.getGreen();
+                int b = pixel.getBlue();
+
+                if (x < midX && y < midY)
+                {
+                    int blurR = 0, blurG = 0, blurB = 0, count = 0;
+
+                    for (int dx = -10; dx <= 10; dx++) {
+                        for (int dy = -10; dy <= 10; dy++) {
+                            int newX = x + dx;
+                            int newY = y + dy;
+
+                            if (newX >= 0 && newX < image.getWidth() && newY >= 0 && newY < image.getHeight()) {
+                                Pixel neighborPixel = image.getPixel(newX, newY);
+                                blurR += neighborPixel.getRed();
+                                blurG += neighborPixel.getGreen();
+                                blurB += neighborPixel.getBlue();
+                                count++;
+                            }
+                        }
+                    }
+
+                    blurR /= count;
+                    blurG /= count;
+                    blurB /= count;
+                    pixel.setColor(new Color(blurR, blurG, blurB));
+                } else if (x >= midX && y < midY)
+                {
+                    pixel.setColor(new Color(g, r, b));
+                } else if (x < midX && y >= midY)
+                {
+                    pixel.setColor(new Color(255 - r, 255 - g, 255 - b));
+                } else
+                {
+                    pixel.setColor(new Color(r / 2, g / 2, b));
+                }
+
+                if(x < 10 || x > image.getWidth()-10 || y < 10 || y > image.getHeight()-10)
+                {
+                    int randR = (int) (Math.random() * 256);
+                    int randG = (int) (Math.random() * 256);
+                    int randB = (int) (Math.random() * 256);
+                    pixel.setColor(new Color(randR,randG,randB));
+                }
             }
         }
     }
