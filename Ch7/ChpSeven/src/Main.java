@@ -1,12 +1,12 @@
 public class Main {
     public static void main(String[] args) {
-        int data[] = new int[20];
-        for(int k = 0;k<20;k++)
+        int [][] matrix = new int[3][3];
+        int result = 0;
+        for(int i = 0; i<3; i++)
         {
-            data[k] = k+k % 3 + k % 2;
+            result += matrix[0][i];
+            matrix.length
         }
-        System.out.println(data[0]);
-        System.out.println(data[4]);
-        System.out.println(data[19]);
+        System.out.println(result);
     }
 }
