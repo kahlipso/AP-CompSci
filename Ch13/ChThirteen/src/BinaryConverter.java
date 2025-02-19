@@ -8,8 +8,6 @@ public class BinaryConverter {
 
     public static String convertToBase2(int n)
     {
-        String num = n + "";
-
         if(n==0)
         {
             return "0";
