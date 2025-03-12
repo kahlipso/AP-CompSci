@@ -99,15 +99,16 @@ public class Analyzer
     public void sortByHeight()
     {
         int n = list.size();
-        for (int i = 1; i < n; ++i) {
+        for (int i = 1; i < n; i++) {
             double key = list.get(i).getHeight();
+            Person temp = list.get(i);
             int j = i - 1;
 
             while (j >= 0 && list.get(j).getHeight() > key) {
-                list.get(j+1).setHeight(list.get(j).getHeight());
-                j = j - 1;
+                list.set(j+1, list.get(j));
+                j--;
             }
-            list.get(j+1).setHeight(key);
+            list.set(j+1, temp);
         }
     }
     
