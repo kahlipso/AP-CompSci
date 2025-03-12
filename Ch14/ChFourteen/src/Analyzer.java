@@ -125,9 +125,11 @@ public class Analyzer
         {
             if(arr.get(0).getWeight() > arr.get(1).getWeight())
             {
-                double temp = arr.get(0).getWeight();
-                arr.get(0).setWeight(arr.get(1).getWeight());
-                arr.get(1).setWeight(temp);
+                Person temp = arr.get(0);
+                //arr.get(0).setWeight(arr.get(1).getWeight());
+                arr.set(0, arr.get(1));
+                arr.set(1, temp);
+                //arr.get(1).setWeight(temp);
             }
             return arr;
         }
