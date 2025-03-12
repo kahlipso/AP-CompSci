@@ -5,7 +5,7 @@ public class Main {
         for(int i = 0; i<3; i++)
         {
             result += matrix[0][i];
-            matrix.length
+           // matrix.length
         }
         System.out.println(result);
     }
