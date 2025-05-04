@@ -78,7 +78,6 @@ public class Vial
 
     public boolean equals(Object obj)
     {
-
         return false;
     }
 
