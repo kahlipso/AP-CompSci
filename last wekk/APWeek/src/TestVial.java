@@ -214,45 +214,45 @@ public class TestVial
     }
    
     
-    // @Test
-    // public void testVial_toStringAsPercent()
-    // {
-        // Vial vial1 = new Vial();
-        // assertEquals("", vial1.toString());
+     @Test
+     public void testVial_toStringAsPercent()
+     {
+         Vial vial1 = new Vial();
+         assertEquals("", vial1.toString());
         
-        // Vial vial2 = new Vial();
-        // Potion potion1 = new Potion("sulfur",4.0);
-        // Potion potion2 = new Potion("iron",16.0);
-        // Potion potion3 = new Potion("phosphor",52.5);
-        // Potion potion4 = new Potion("water",7.5);
-        // assertEquals(true,vial2.addPotion(potion1));
-        // assertEquals(true,vial2.addPotion(potion2));
-        // assertEquals("sulfur: 20.0%\niron: 80.0%", vial2.toStringAsPercent());
-        // assertEquals(true,vial2.addPotion(potion3));
-        // assertEquals(true,vial2.addPotion(potion4));
-        // assertEquals("sulfur: 5.0%\niron: 20.0%\nphosphor: 65.625%\nwater: 9.375%", vial2.toStringAsPercent());
-        
-        
-    // }
-    // @Test
-    // public void testVial_getPrimary()
-    // {
-        // Vial vial1 = new Vial();
-        // assertEquals(null, vial1.getPrimary());
-        
-        // Vial vial2 = new Vial();
-        // Potion potion1 = new Potion("sulfur",4.0);
-        // Potion potion2 = new Potion("iron",16.0);
-        // Potion potion3 = new Potion("phosphor",52.5);
-        // Potion potion4 = new Potion("water",3.5);
-        // assertEquals(true,vial2.addPotion(potion1));
-        // assertEquals(true,vial2.addPotion(potion2));
-        // assertEquals(true,vial2.addPotion(potion3));
-        // assertEquals(true,vial2.addPotion(potion4));
-        // Potion primary = vial2.getPrimary();
-        // assertEquals("phosphor", primary.getDescription());
-        // assertEquals(52.5, primary.getQuantity(), 0.000001);
+         Vial vial2 = new Vial();
+         Potion potion1 = new Potion("sulfur",4.0);
+         Potion potion2 = new Potion("iron",16.0);
+         Potion potion3 = new Potion("phosphor",52.5);
+         Potion potion4 = new Potion("water",7.5);
+         assertEquals(true,vial2.addPotion(potion1));
+         assertEquals(true,vial2.addPotion(potion2));
+         assertEquals("sulfur: 20.0%\niron: 80.0%", vial2.toStringAsPercent());
+         assertEquals(true,vial2.addPotion(potion3));
+         assertEquals(true,vial2.addPotion(potion4));
+         assertEquals("sulfur: 5.0%\niron: 20.0%\nphosphor: 65.625%\nwater: 9.375%", vial2.toStringAsPercent());
         
         
-    // }
+     }
+     @Test
+     public void testVial_getPrimary()
+     {
+         Vial vial1 = new Vial();
+         assertEquals(null, vial1.getPrimary());
+        
+         Vial vial2 = new Vial();
+         Potion potion1 = new Potion("sulfur",4.0);
+         Potion potion2 = new Potion("iron",16.0);
+         Potion potion3 = new Potion("phosphor",52.5);
+         Potion potion4 = new Potion("water",3.5);
+         assertEquals(true,vial2.addPotion(potion1));
+         assertEquals(true,vial2.addPotion(potion2));
+         assertEquals(true,vial2.addPotion(potion3));
+         assertEquals(true,vial2.addPotion(potion4));
+         Potion primary = vial2.getPrimary();
+         assertEquals("phosphor", primary.getDescription());
+         assertEquals(52.5, primary.getQuantity(), 0.000001);
+        
+        
+     }
 }

@@ -23,6 +23,14 @@ public class Vial
         unique = new ArrayList<>();
         currentGrams = 0;
     }
+
+    public Vial(Potion[] potions)
+    {
+        for(int i = 0; i < potions.length;i++)
+        {
+            mixture.add(potions[i]);
+        }
+    }
     
       /**
      *  Return the number of different potions in the vial
@@ -78,6 +86,34 @@ public class Vial
 
     public boolean equals(Object obj)
     {
+        if(!(obj instanceof Vial))
+        {
+            return false;
+        }
+        Vial v =(Vial) obj;
+
+        if(v.mixture.size() != this.mixture.size())
+            return false;
+
+        for(int i = 0; i < mixture.size(); i++)
+        {
+            if(!v.mixture.contains(mixture.get(i)))
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean potionFound(ArrayList<Potion> list, Potion potion)
+    {
+        for(int i = 0; i < list.size(); i++)
+        {
+            if(list.get(i).equals(potion))
+            {
+                return true;
+            }
+        }
         return false;
     }
 
@@ -126,14 +162,33 @@ public class Vial
     
     public String toStringAsPercent()
     {
-      // You may or may not be asked to code this... ask Mrs. Bar
-      return null;
+        String output  ="";
+        if(!mixture.isEmpty())
+        {
+            for(int i = 0; i < mixture.size() -1; i++)
+            {
+                output += mixture.get(i).getDescription() + ": " + ((mixture.get(i).getQuantity()/currentGrams)*100) + "%" + "\n";
+            }
+
+            output += mixture.getLast().getDescription() + ": " + ((mixture.getLast().getQuantity()/currentGrams)*100)+ "%";
+        }
+
+        return output;
     }
 
     public Potion getPrimary()
     {
+        Potion p = new Potion("", 0);
+
+        for(int i =0; i < mixture.size(); i++)
+        {
+            if(mixture.get(i).getQuantity() > p.getQuantity())
+            {
+                p = mixture.get(i);
+            }
+        }
         // You may or may not be asked to code this... ask Mrs. Bar
-        return null;
+        return p;
     }
 
 }
