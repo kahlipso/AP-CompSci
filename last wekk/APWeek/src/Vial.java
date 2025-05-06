@@ -180,6 +180,11 @@ public class Vial
     {
         Potion p = new Potion("", 0);
 
+        if(mixture.isEmpty())
+        {
+            return null;
+        }
+
         for(int i =0; i < mixture.size(); i++)
         {
             if(mixture.get(i).getQuantity() > p.getQuantity())
