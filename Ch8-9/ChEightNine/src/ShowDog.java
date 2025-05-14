@@ -33,7 +33,6 @@ public class ShowDog extends Dog{
         ArrayList<String> result= new ArrayList<String>();
         for(String award : awards)
         {
-
             result.add(award);
 
 

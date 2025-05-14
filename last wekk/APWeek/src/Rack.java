@@ -37,7 +37,6 @@ public class Rack {
     }
 
 
-    //number of vials
     public int count()
     {
         int count = 0;
@@ -70,7 +69,6 @@ public class Rack {
         return count;
     }
 
-    //weight of the entire rack
     public double getQuantity()
     {
         double count = 0;

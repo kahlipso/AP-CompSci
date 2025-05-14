@@ -4,7 +4,6 @@ public class Card
 {
 	public String[][] card;
 
-
 	public Card()
 	{
 		card = new String[5][5];

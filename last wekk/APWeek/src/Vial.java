@@ -11,24 +11,26 @@ public class Vial
      *  Think which data structure would be best for this.    
      */
     
-    private ArrayList<Potion> mixture;
-    private double currentGrams;
+    private ArrayList<Potion> mix;
+    private double amount;
     private ArrayList<String> unique;
+
+
     /**
      * Constructor for objects of class Vials
      */
     public Vial()
     {
-        mixture = new ArrayList<>();
+        mix = new ArrayList<>();
         unique = new ArrayList<>();
-        currentGrams = 0;
+        amount = 0;
     }
 
     public Vial(Potion[] potions)
     {
         for(int i = 0; i < potions.length;i++)
         {
-            mixture.add(potions[i]);
+            mix.add(potions[i]);
         }
     }
     
@@ -47,7 +49,7 @@ public class Vial
     public double getQuantity(String potionName)
     {
         double count = 0;
-        for (Potion potion : mixture) {
+        for (Potion potion : mix) {
             if (potion.getDescription().equals(potionName)) {
                 count += potion.getQuantity();
             }
@@ -61,7 +63,7 @@ public class Vial
     public double getQuantity()
     {
         // You code this
-        return currentGrams;
+        return amount;
     }
 
     /**
@@ -71,14 +73,14 @@ public class Vial
     public String toString()
     {
         String output  ="";
-        if(!mixture.isEmpty())
+        if(!mix.isEmpty())
         {
-            for(int i = 0; i < mixture.size() -1; i++)
+            for(int i = 0; i < mix.size() -1; i++)
             {
-                output += mixture.get(i).getQuantity() + " grams of " + mixture.get(i).getDescription() + "\n";
+                output += mix.get(i).getQuantity() + " grams of " + mix.get(i).getDescription() + "\n";
             }
 
-            output +=mixture.getLast().getQuantity() + " grams of " + mixture.getLast().getDescription();
+            output +=mix.getLast().getQuantity() + " grams of " + mix.getLast().getDescription();
         }
 
         return output;
@@ -92,12 +94,12 @@ public class Vial
         }
         Vial v =(Vial) obj;
 
-        if(v.mixture.size() != this.mixture.size())
+        if(v.mix.size() != this.mix.size())
             return false;
 
-        for(int i = 0; i < mixture.size(); i++)
+        for(int i = 0; i < mix.size(); i++)
         {
-            if(!v.mixture.contains(mixture.get(i)))
+            if(!v.mix.contains(mix.get(i)))
             {
                 return false;
             }
@@ -130,15 +132,15 @@ public class Vial
      */
     public boolean addPotion(Potion potion)
     {
-        if(currentGrams + potion.getQuantity() <=100)
+        if(amount + potion.getQuantity() <=100)
         {
-            if(mixture.isEmpty() || isUnique(potion))
+            if(mix.isEmpty() || isUnique(potion))
             {
                 unique.add(potion.getDescription());
 
             }
-            mixture.add(potion);
-            currentGrams += potion.getQuantity();
+            mix.add(potion);
+            amount += potion.getQuantity();
 
             return true;
         }
@@ -150,9 +152,9 @@ public class Vial
 
     private boolean isUnique(Potion pot)
     {
-        for(int i = 0; i < mixture.size(); i++)
+        for(int i = 0; i < mix.size(); i++)
         {
-            if(pot.getDescription().equals(mixture.get(i).getDescription()))
+            if(pot.getDescription().equals(mix.get(i).getDescription()))
             {
                 return false;
             }
@@ -163,14 +165,14 @@ public class Vial
     public String toStringAsPercent()
     {
         String output  ="";
-        if(!mixture.isEmpty())
+        if(!mix.isEmpty())
         {
-            for(int i = 0; i < mixture.size() -1; i++)
+            for(int i = 0; i < mix.size() -1; i++)
             {
-                output += mixture.get(i).getDescription() + ": " + ((mixture.get(i).getQuantity()/currentGrams)*100) + "%" + "\n";
+                output += mix.get(i).getDescription() + ": " + ((mix.get(i).getQuantity()/amount)*100) + "%" + "\n";
             }
 
-            output += mixture.getLast().getDescription() + ": " + ((mixture.getLast().getQuantity()/currentGrams)*100)+ "%";
+            output += mix.getLast().getDescription() + ": " + ((mix.getLast().getQuantity()/amount)*100)+ "%";
         }
 
         return output;
@@ -180,16 +182,16 @@ public class Vial
     {
         Potion p = new Potion("", 0);
 
-        if(mixture.isEmpty())
+        if(mix.isEmpty())
         {
             return null;
         }
 
-        for(int i =0; i < mixture.size(); i++)
+        for(int i =0; i < mix.size(); i++)
         {
-            if(mixture.get(i).getQuantity() > p.getQuantity())
+            if(mix.get(i).getQuantity() > p.getQuantity())
             {
-                p = mixture.get(i);
+                p = mix.get(i);
             }
         }
         // You may or may not be asked to code this... ask Mrs. Bar
